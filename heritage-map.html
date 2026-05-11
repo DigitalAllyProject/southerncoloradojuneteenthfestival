@@ -2362,6 +2362,34 @@ function applyFilters() {
   });
 
   resultCount.textContent = visible + ' / ' + cards.length + ' points';
+
+  // Sync the map markers with the same filter logic. The map may not be
+  // loaded yet on first call; initMap will re-apply once it's ready.
+  if (window.SCAVENGER_MAP && window.SCAVENGER_MARKERS && window.SCAVENGER_MARKERS.length) {
+    const bounds = new google.maps.LatLngBounds();
+    let mapVisible = 0;
+    window.SCAVENGER_MARKERS.forEach(m => {
+      const loc = m.loc;
+      const matchRegion = !region || loc.region === region;
+      const matchCat = !category || loc.category === category;
+      const matchSearch = !search || loc.name.toLowerCase().includes(search);
+      const show = matchRegion && matchCat && matchSearch;
+      m.marker.setMap(show ? window.SCAVENGER_MAP : null);
+      if (show) {
+        bounds.extend({ lat: loc.lat, lng: loc.lon });
+        mapVisible++;
+      }
+    });
+    if (window.SCAVENGER_INFOWINDOW) window.SCAVENGER_INFOWINDOW.close();
+    // Auto-frame the visible markers when a filter is actively narrowing the set.
+    // Skip if everything is visible (default state) so the user keeps their pan/zoom.
+    if (mapVisible > 0 && mapVisible < window.SCAVENGER_MARKERS.length) {
+      window.SCAVENGER_MAP.fitBounds(bounds, 48);
+      // Don't zoom past street level on a single result
+      const z = window.SCAVENGER_MAP.getZoom();
+      if (mapVisible === 1 && z > 16) window.SCAVENGER_MAP.setZoom(16);
+    }
+  }
 }
 
 if (filterRegion) {
@@ -2453,6 +2481,9 @@ window.initMap = function () {
 
   window.SCAVENGER_MAP = map;
   window.SCAVENGER_INFOWINDOW = infoWindow;
+
+  // Sync markers with whatever filter state is already active in the UI.
+  if (typeof applyFilters === 'function') applyFilters();
 };
 
 // "View on map" buttons: scroll to map and open the matching marker
@@ -2502,12 +2533,14 @@ if ('serviceWorker' in navigator) {
       </ol>
     </details>
     <details class="install-platform" id="install-android">
-      <summary>Android (Chrome)</summary>
+      <summary>Android &mdash; use Chrome (not Edge)</summary>
       <ol>
-        <li>Tap the <strong>three-dot menu</strong> in the top-right of Chrome.</li>
+        <li>Open this page in <strong>Chrome</strong> on Android.</li>
+        <li>Tap the <strong>three-dot menu</strong> in the top-right.</li>
         <li>Tap <strong>Install app</strong> (or <em>Add to Home Screen</em>).</li>
         <li>Tap <strong>Install</strong> to confirm.</li>
       </ol>
+      <p class="install-platform-warn"><strong>Important:</strong> on Android, install with Chrome &mdash; not Edge. Chrome creates a standalone app that uninstalls cleanly. Edge installs a shortcut bound to the Edge browser, so removing the icon can prompt to uninstall Edge itself.</p>
     </details>
     <details class="install-platform" id="install-desktop">
       <summary>Desktop (Chrome or Edge)</summary>
@@ -2516,7 +2549,7 @@ if ('serviceWorker' in navigator) {
         <li>Click it, then click <strong>Install</strong>.</li>
       </ol>
     </details>
-    <p class="install-uninstall-note"><strong>Heads up before you uninstall</strong>To remove this app later, do <em>not</em> uninstall it from Windows Apps &amp; Features &mdash; that can accidentally remove the underlying browser. Instead, open <code>edge://apps/</code> (Edge) or <code>chrome://apps/</code> (Chrome) and remove it there. On phones, long-press the home-screen icon and tap Remove.</p>
+    <p class="install-uninstall-note"><strong>Heads up before you uninstall</strong>To remove this app later: on <strong>Windows desktop</strong>, open <code>edge://apps/</code> (Edge) or <code>chrome://apps/</code> (Chrome) and uninstall from there &mdash; not from Windows Apps &amp; Features, which can accidentally remove the browser. On <strong>Android</strong>, long-press the icon and tap <em>Uninstall</em> &mdash; but only if you installed via Chrome. Edge on Android stores PWAs as browser-bound shortcuts, so uninstalling can remove Edge itself. On <strong>iPhone / iPad</strong>, long-press the icon, tap <em>Remove App</em>, then <em>Delete from Home Screen</em> &mdash; safe by design.</p>
   </div>
 </dialog>
 

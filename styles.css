@@ -898,6 +898,22 @@ main {
   line-height: 1.6;
 }
 .install-platform li { margin-bottom: 6px; }
+.install-platform-warn {
+  margin: 10px 0 0 24px;
+  padding: 10px 12px;
+  background: rgba(200, 16, 46, 0.06);
+  border-left: 3px solid var(--pa-red);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.install-platform-warn strong {
+  color: var(--pa-red);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 .install-uninstall-note {
   margin-top: 16px;
   padding: 12px 14px;

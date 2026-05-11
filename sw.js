@@ -9,7 +9,7 @@
  * caches get evicted on the next install.
  */
 
-const CACHE_VERSION = 'v2-2026-05-11';
+const CACHE_VERSION = 'v3-2026-05-11';
 const CACHE_NAME = `socojuneteenth-${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
