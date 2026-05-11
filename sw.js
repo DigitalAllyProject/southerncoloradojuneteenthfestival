@@ -9,7 +9,7 @@
  * caches get evicted on the next install.
  */
 
-const CACHE_VERSION = 'v1-2026-05-09';
+const CACHE_VERSION = 'v2-2026-05-11';
 const CACHE_NAME = `socojuneteenth-${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
@@ -20,10 +20,14 @@ const PRECACHE_URLS = [
   './meet-alai.html',
   './open-questions.html',
   './styles.css',
+  './install-prompt.js',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
-  './icons/icon-maskable-512.png'
+  './icons/icon-maskable-512.png',
+  './assets/festival-logo.png',
+  './assets/dap-logo.png',
+  './assets/dap-project2.png'
 ];
 
 self.addEventListener('install', event => {

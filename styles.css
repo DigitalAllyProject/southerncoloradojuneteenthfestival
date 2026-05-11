@@ -29,7 +29,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   margin: 0;
   background: var(--bg);
@@ -37,10 +37,13 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
   background-image:
     radial-gradient(circle at 20% 10%, rgba(212, 166, 52, 0.04) 0, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(45, 106, 62, 0.04) 0, transparent 40%);
 }
+img, video { max-width: 100%; height: auto; }
+a { word-break: break-word; }
 
 /* ===== Global nav header (shared across all tabs) ===== */
 .site-header {
@@ -75,16 +78,22 @@ body {
   gap: 10px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 17px;
   letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .site-brand-mark {
   height: 32px;
   width: auto;
   display: block;
+  flex-shrink: 0;
+}
+.site-brand-text {
+  white-space: normal;
+  line-height: 1.15;
 }
 .site-brand em {
   font-style: italic;
@@ -717,13 +726,269 @@ main {
   color: var(--bg);
 }
 
-/* ===== Responsive tweaks ===== */
+/* ===== Map section (heritage-map.html) ===== */
+.map-section {
+  border-top: 1px solid var(--rule);
+  padding: 56px 32px 64px;
+  background: var(--bg-deeper);
+  scroll-margin-top: 80px;
+}
+.map-section-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.map-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.map-section p {
+  color: var(--ink-soft);
+  max-width: 720px;
+  margin: 0 0 24px;
+}
+#map {
+  width: 100%;
+  height: clamp(360px, 60vh, 600px);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  position: relative;
+}
+.map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-family: var(--font-body);
+  color: var(--ink-faded);
+  background: var(--bg);
+}
+.map-placeholder strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
 @media (max-width: 640px) {
-  .hero { padding: 56px 24px 48px; }
-  main { padding: 32px 20px 64px; }
-  .site-header-inner { padding: 12px 20px; }
-  .site-brand { font-size: 16px; }
-  .site-nav a { font-size: 11px; padding: 6px 10px; }
-  .filters { padding: 12px 20px; }
-  .site-footer { padding: 32px 20px; }
+  .map-section { padding: 32px 16px 48px; }
+}
+
+/* ===== Install button + dialog ===== */
+.install-trigger {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  background: var(--pa-red);
+  color: var(--bg);
+  border: 1px solid var(--pa-red);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.install-trigger:hover { background: var(--ink); border-color: var(--ink); }
+.install-trigger[hidden] { display: none; }
+
+.install-dialog {
+  border: none;
+  padding: 0;
+  background: var(--bg);
+  max-width: 480px;
+  width: calc(100% - 32px);
+  box-shadow: var(--shadow-lift);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+.install-dialog::backdrop {
+  background: rgba(26,22,18,0.6);
+  backdrop-filter: blur(4px);
+}
+.install-dialog-inner {
+  padding: 24px;
+  border-top: 6px solid var(--pa-red);
+}
+.install-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.install-dialog-header .eyebrow { margin-bottom: 6px; }
+.install-dialog-header h2 {
+  font-family: var(--font-display);
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.install-dialog-close {
+  background: transparent;
+  border: 1px solid var(--rule);
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.install-dialog-close:hover { background: var(--bg-deeper); }
+.install-dialog-lede {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+.install-native-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  background: var(--pa-green);
+  color: var(--bg);
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.install-native-btn:hover { background: var(--ink); }
+.install-native-btn[hidden] { display: none; }
+.install-platform {
+  border-top: 1px solid var(--rule);
+  padding: 12px 0;
+}
+.install-platform:last-of-type { border-bottom: 1px solid var(--rule); }
+.install-platform summary {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 0;
+  outline: none;
+  list-style: none;
+}
+.install-platform summary::-webkit-details-marker { display: none; }
+.install-platform summary::before {
+  content: '+';
+  display: inline-block;
+  width: 20px;
+  color: var(--ink-faded);
+  font-weight: 400;
+}
+.install-platform[open] summary::before {
+  content: '–';
+  color: var(--pa-red);
+}
+.install-platform[open] summary { color: var(--pa-red); }
+.install-platform ol {
+  margin: 8px 0 4px 24px;
+  padding-left: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.install-platform li { margin-bottom: 6px; }
+.install-uninstall-note {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: var(--bg-deeper);
+  border-left: 3px solid var(--pa-gold);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.install-uninstall-note strong {
+  color: var(--ink);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 760px) {
+  .site-header-inner {
+    padding: 10px 16px;
+    gap: 8px 12px;
+  }
+  .site-brand {
+    font-size: 14px;
+    gap: 8px;
+    flex: 1 1 100%;
+    order: 1;
+  }
+  .site-brand-mark { height: 26px; }
+  .install-trigger {
+    order: 2;
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .site-nav {
+    flex: 1 1 100%;
+    margin-left: 0;
+    gap: 2px;
+    order: 3;
+    justify-content: flex-start;
+  }
+  .site-nav a {
+    font-size: 10px;
+    padding: 6px 8px;
+    letter-spacing: 0.06em;
+  }
+}
+@media (max-width: 640px) {
+  .hero { padding: 48px 20px 40px; }
+  .hero h1 { font-size: clamp(1.75rem, 8vw, 3rem); }
+  .hero-lede { font-size: 16px; }
+  .hero-meta { gap: 12px 24px; }
+  .meta-item strong { font-size: 24px; }
+  main { padding: 28px 16px 56px; }
+  .section { margin-bottom: 48px; }
+  .section-heading { flex-direction: column; gap: 6px; align-items: flex-start; padding-bottom: 12px; }
+  .section-title { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .filters {
+    padding: 12px 16px;
+    top: 56px;
+  }
+  .filters-inner { gap: 8px; }
+  .filter-search { width: 100%; min-width: 0; flex-basis: 100%; }
+  .filter-select { flex: 1 1 calc(50% - 6px); min-width: 0; }
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .card-grid.cols-2 { grid-template-columns: 1fr; }
+  .card-static { padding: 18px; }
+  .info-row { grid-template-columns: 1fr; gap: 2px; padding-bottom: 6px; }
+  .info-row dt { margin-top: 4px; }
+  .site-footer { padding: 24px 16px; }
+  .site-footer-inner { font-size: 11px; gap: 12px; flex-direction: column; }
+  .timeline-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .question-block { padding: 20px 18px; }
+  .question-block .question-meta { gap: 8px 16px; font-size: 10px; }
+  .install-dialog-inner { padding: 20px 18px; }
+  .logo-strip { gap: 16px 24px; padding: 16px 0; }
+  .logo-strip img { height: 48px; }
+  .contact-actions { grid-template-columns: 1fr; }
+  .region-section { scroll-margin-top: 100px; }
+}
+@media (max-width: 380px) {
+  .site-nav a {
+    font-size: 9px;
+    padding: 5px 6px;
+    letter-spacing: 0.04em;
+  }
+  .hero h1 { font-size: 1.6rem; }
 }
