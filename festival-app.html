@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Board briefing for the Southern Colorado Juneteenth Festival mobile companion app — what it is, who's building it, timeline (June 20–21, 2026), what ships in v1, risks, and what the festival nonprofit receives on July 17, 2026." />
+<meta name="theme-color" content="#C8102E" />
+<title>The Festival App — Southern Colorado Juneteenth Festival</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html"><img src="assets/festival-logo.png" alt="" class="site-brand-mark" /><span>Southern Colorado <em>Juneteenth</em></span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="heritage-map.html">Heritage Map</a>
+      <a href="festival-app.html" class="active">The Festival App</a>
+      <a href="meet-alai.html">Meet ALAI</a>
+      <a href="open-questions.html">Open Questions</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">The Festival App · Board Briefing</p>
+    <h1>A mobile companion for <em>June 20–21, 2026</em></h1>
+    <p class="hero-lede">
+      A website that works like an app, a community-built heritage directory behind it, and six weeks to bring them to life. This briefing covers what we're building, who's building it, the timeline, the risks we're carrying, and what the festival nonprofit receives on July&nbsp;17,&nbsp;2026.
+    </p>
+  </div>
+</section>
+
+<main>
+
+<section class="section" id="what-it-is">
+  <div class="section-heading">
+    <h2 class="section-title">What it is, in one slide</h2>
+    <span class="section-meta">Tab 2 · §1</span>
+  </div>
+  <p>
+    <strong>A website that works like an app.</strong> Open it once in your phone's browser, save it to your home screen, and it behaves like any other app &mdash; even offline. The next step is packaging it for the <strong>Google Play Store and Apple App Store</strong> so attendees find it the way they find every other app.
+  </p>
+  <div class="card-grid cols-2">
+    <article class="card card-static">
+      <p class="category-badge">Open to All</p>
+      <p class="card-body-text">Map, schedule, and vendor list are available to everyone &mdash; no sign-in required.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Sign In to Engage</p>
+      <p class="card-body-text">Use the festival assistant chat or view your profile by signing in with <strong>email, Facebook, Google, or Microsoft</strong>.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Works Offline</p>
+      <p class="card-body-text">Core features load even when the venue's cell signal is poor &mdash; because we plan for real conditions, not ideal ones.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="who-is-building-it">
+  <div class="section-heading">
+    <h2 class="section-title">Who is building it</h2>
+    <span class="section-meta">Tab 2 · §2</span>
+  </div>
+  <h3>Community technologists</h3>
+  <p>
+    This team is made up of community members using this project to gain real-world, production experience while solving a real community problem. <strong>This is not paid workforce development &mdash; it is community service that builds skills.</strong>
+  </p>
+  <p>
+    The build is led by an experienced architect and hosted by <strong>Digital Ally Project</strong>, ensuring mentorship, code quality, and accountability throughout.
+  </p>
+  <div class="logo-strip">
+    <p class="logo-strip-label">Hosted by</p>
+    <img src="assets/dap-logo.png" alt="Digital Ally Project logo" />
+    <img src="assets/dap-project2.png" alt="Digital Ally Project Project2 logo" />
+    <div class="stack">
+      <span>Digital Ally Project</span>
+      <span>digitalally.org</span>
+    </div>
+  </div>
+
+  <h3>Get in touch</h3>
+  <p>Questions about the build, the cohort, or partnership? Reach Logan directly &mdash; tap a link to open your email, phone, or messaging app.</p>
+  <div class="contact-actions">
+    <a class="contact-action" href="mailto:logan@digitalally.org">
+      <span class="contact-action-label">Email</span>
+      <span class="contact-action-value">logan@digitalally.org</span>
+    </a>
+    <a class="contact-action" href="tel:+17192573246">
+      <span class="contact-action-label">Call</span>
+      <span class="contact-action-value">(719) 257-3246</span>
+    </a>
+    <a class="contact-action" href="sms:+17192573246">
+      <span class="contact-action-label">Text</span>
+      <span class="contact-action-value">(719) 257-3246</span>
+    </a>
+  </div>
+  <h3>Open source by design</h3>
+  <p>
+    The codebase is released under the Apache 2.0 license &mdash; free to use, modify, and distribute forever. After July&nbsp;17,&nbsp;2026, the festival nonprofit owns the codebase outright, with no strings attached.
+  </p>
+  <h3>Why it matters</h3>
+  <p>
+    Community technologists, still learning, can ship a tool a nonprofit can trust &mdash; because the process is rigorous, documented, and transparent from day one.
+  </p>
+</section>
+
+<section class="section" id="timeline">
+  <div class="section-heading">
+    <h2 class="section-title">Timeline &mdash; six weeks to launch</h2>
+    <span class="section-meta">Tab 2 · §3</span>
+  </div>
+  <p>
+    Six tight weeks from first commit to festival day. Every milestone is scoped to what can realistically ship &mdash; the discipline is built into the schedule, not bolted on at the end.
+  </p>
+  <div class="timeline">
+    <div class="timeline-row">
+      <span class="timeline-date">2026-05-09</span>
+      <p class="timeline-event">Build begins.</p>
+    </div>
+    <div class="timeline-row">
+      <span class="timeline-date">2026-06-05</span>
+      <p class="timeline-event">Board demo &mdash; private feedback session.</p>
+    </div>
+    <div class="timeline-row highlight">
+      <span class="timeline-date">2026-06-17</span>
+      <p class="timeline-event">Public launch. App goes live so attendees can start the scavenger hunt three days before the festival opens. Festival assistant activates.</p>
+    </div>
+    <div class="timeline-row highlight">
+      <span class="timeline-date">2026-06-20 &amp; 2026-06-21</span>
+      <p class="timeline-event"><strong>Festival days.</strong> Two-day Southern Colorado Juneteenth Festival.</p>
+    </div>
+    <div class="timeline-row">
+      <span class="timeline-date">2026-06-24</span>
+      <p class="timeline-event">Festival assistant winds down. App stays live for post-festival access.</p>
+    </div>
+    <div class="timeline-row highlight">
+      <span class="timeline-date">2026-07-17</span>
+      <p class="timeline-event">App stabilization complete. Codebase fully in the festival nonprofit's hands.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="whats-in-v1">
+  <div class="section-heading">
+    <h2 class="section-title">What's in v1 &mdash; what we're committing to build</h2>
+    <span class="section-meta">Tab 2 · §4</span>
+  </div>
+  <div class="card-grid cols-2">
+    <article class="card card-static">
+      <p class="category-badge">Festival Map</p>
+      <p class="card-body-text">Basemap with points of interest for the festival grounds &mdash; easy to navigate even on a crowded day.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Live Schedule</p>
+      <p class="card-body-text">Up-to-date schedule plus vendor, sponsor, and food-truck listings &mdash; all in one place.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Multi-Provider Sign-In</p>
+      <p class="card-body-text">Sign in with <strong>email, Facebook, Google, or Microsoft</strong> &mdash; attendees use what they already have.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Donations via Zeffy</p>
+      <p class="card-body-text">General-support donations to the festival nonprofit, processed through Zeffy's no-fee platform. The nonprofit pays zero platform fees on donations.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Festival Assistant</p>
+      <p class="card-body-text">An AI-powered chat to help attendees navigate the festival and ask questions during the festival window. See the <a href="meet-alai.html">Meet ALAI</a> tab for what's possible.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Heritage Directory</p>
+      <p class="card-body-text">The 104-place community directory wired into the map &mdash; scope depends on board input. See <a href="open-questions.html#q1">Question 1</a>.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="how-it-works-at-the-venue">
+  <div class="section-heading">
+    <h2 class="section-title">How the app keeps working when the network is bad</h2>
+    <span class="section-meta">Tab 2 · §5</span>
+  </div>
+  <p>
+    The venue's cell signal is poor. Rather than hoping for the best, the app is built to handle that from day one.
+  </p>
+  <div class="card-grid cols-2">
+    <article class="card card-static">
+      <p class="category-badge">Pre-loaded for offline use</p>
+      <p class="card-body-text">The app loads itself onto each phone in advance. The map, schedule, and vendor list open instantly &mdash; no signal needed, no sign-in required.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Fast public surfaces</p>
+      <p class="card-body-text">The map, schedule, and vendor list never need a sign-in. They open the moment the page loads &mdash; nothing to wait for.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="directory-connection">
+  <div class="section-heading">
+    <h2 class="section-title">How the directory could connect to the app</h2>
+    <span class="section-meta">Tab 2 · §6</span>
+  </div>
+  <h3>The simplest version</h3>
+  <p>
+    The app's map shows the directory's 104 points of interest, presented in context for the festival &mdash; giving every attendee a window into Southern Colorado's Black-heritage story while they're on the grounds.
+  </p>
+  <h3>Beyond the festival</h3>
+  <p>
+    The directory situates the festival inside a year-round Southern Colorado Black-heritage narrative &mdash; useful long after the last tent comes down.
+  </p>
+  <div class="callout">
+    <p class="callout-label">Geographic scope &mdash; a board decision</p>
+    <p>
+      How far the map reaches is an open question for this board. The answer shapes both the scope of work and the story the app tells. See <a href="open-questions.html#q1">Question 1</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="risks">
+  <div class="section-heading">
+    <h2 class="section-title">Risks we're carrying &mdash; and what we're doing about them</h2>
+    <span class="section-meta">Tab 2 · §7</span>
+  </div>
+  <div class="card-grid cols-2">
+    <article class="card card-static">
+      <p class="category-badge">Six weeks is short</p>
+      <p class="card-body-text">We say "no" to anything outside the agreed scope, so the things we <em>do</em> ship are solid. Scope discipline is the mitigation.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Poor venue cell signal</p>
+      <p class="card-body-text">The app is built to keep working without a signal &mdash; not to hope the towers hold up. Core content pre-loads to every device.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">No vendor lock-in</p>
+      <p class="card-body-text">The tools we use are common enough that the festival could move the app elsewhere later if it ever made sense. The nonprofit is never trapped by our choices.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Resources on a clock</p>
+      <p class="card-body-text">Azure nonprofit credits and the Zeffy API key both flow through one meeting with Jen. Without it, the donation pipeline stalls. See <a href="open-questions.html#q3">Question 3</a>.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="handoff">
+  <div class="section-heading">
+    <h2 class="section-title">What the nonprofit receives on July 17, 2026</h2>
+    <span class="section-meta">Tab 2 · §8</span>
+  </div>
+  <p>
+    This isn't just a festival app that disappears after June 21. On July 17, the festival nonprofit takes full ownership of a documented, production-ready codebase.
+  </p>
+  <div class="card-grid cols-2">
+    <article class="card card-static">
+      <p class="category-badge">Working app + source</p>
+      <p class="card-body-text">Fully documented, Apache 2.0 licensed &mdash; free to use, modify, and distribute forever. No license fees, ever.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">All festival data</p>
+      <p class="card-body-text">Saved in a portable format the nonprofit can keep, move to another system, or close out entirely &mdash; their choice.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Maintainer's guide</p>
+      <p class="card-body-text">A clear guide covering what to keep running year-round, what to switch off after the festival, and what to refresh next June.</p>
+    </article>
+    <article class="card card-static">
+      <p class="category-badge">Post-festival to-do list</p>
+      <p class="card-body-text">A documented list of follow-up items: keeping software dependencies current, adding deeper security checks, and planning for the next year.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="next">
+  <div class="section-heading">
+    <h2 class="section-title">Where to go next</h2>
+    <span class="section-meta">Cross-links</span>
+  </div>
+  <p>
+    <a class="cross-link" href="heritage-map.html">Browse the Heritage Map</a>
+    &nbsp;
+    <a class="cross-link" href="meet-alai.html">Meet ALAI</a>
+    &nbsp;
+    <a class="cross-link" href="open-questions.html">See the open questions</a>
+  </p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div><strong>Repo</strong> · github.com/DigitalAllyProject/southerncoloradojuneteenthfestival</div>
+    <div>Last verified · 2026-05-09</div>
+    <div>Re-verify by · 2026-06-08</div>
+    <div><strong>Contact</strong> · <a href="mailto:logan@digitalally.org">logan@digitalally.org</a> · <a href="tel:+17192573246">(719) 257-3246</a></div>
+  </div>
+</footer>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>

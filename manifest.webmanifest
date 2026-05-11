@@ -1,0 +1,33 @@
+{
+  "name": "Southern Colorado Juneteenth Festival — Briefing",
+  "short_name": "SoCo Juneteenth",
+  "description": "Board briefing for the Southern Colorado Juneteenth Festival mobile companion app: heritage map, festival app overview, ALAI, and open board decisions.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F4EFE6",
+  "theme_color": "#C8102E",
+  "lang": "en-US",
+  "categories": ["education", "social", "lifestyle"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
